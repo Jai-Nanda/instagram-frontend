@@ -1,10 +1,21 @@
-
 import React from 'react'
 import { Link } from 'react-router-dom'
 import './Navbar.css'
 const Navbar = () => {
+    const [loggedIn, setLoggedIn] = React.useState(false)
+    const [user, setUser] = React.useState(null)
+    async function getUser() {
+        if (user) {
+            return user
+            setLoggedIn(true)
+        }
+        else {
+            setLoggedIn(false)
+        }
+    }
     return (
         <>
+            {/* {getUser()} */}
             <nav>
                 <div className="head"><Link to="/"><img src="#" alt="logo" className="logo"/></Link></div>
                 <ul className="nav-links">

@@ -22,6 +22,7 @@ const SignUp = () => {
       .then(data => {
         if (data.error) {
           console.log(data.error)
+          alert(data.error)
         } else {
           console.log(data)
           alert('Signup Successful')
