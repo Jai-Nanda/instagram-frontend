@@ -1,7 +1,9 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import './SignUp.css'
-import { Navigate, useNavigate } from 'react-router-dom'  
+import {useNavigate } from 'react-router-dom'  
+import { UserContext } from '../App'
 const SignIn = () => {
+  const {state , dispatch} = useContext
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const Navigate = useNavigate()
@@ -24,6 +26,7 @@ const SignIn = () => {
         } else {
           localStorage.setItem('jwt', data.token)
           localStorage.setItem('userId', data.userId)
+          dispatch({ type: 'USER', payload:data.userId})
           console.log(data)
           alert('Signup Successful')
           Navigate('/')

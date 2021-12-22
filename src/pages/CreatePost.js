@@ -33,13 +33,14 @@ const CreatePost = () => {
           content,
           url
         })
-      }).then(res => res.json())
+      }).then(res => res.text())
         .then(data => {
           if (data.error) {
           alert("khuch toh garbar hain")
           }
           else {
             alert('bangyi post poggers')
+            console.log(data)
           }
       })
     }
